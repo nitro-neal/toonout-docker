@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  toonout:
+    build:
+      context: .
+      dockerfile: Dockerfile.gpu
+    container_name: toonout-api-gpu
+    ports:
+      - "1337:1337"
+    environment:
+      - TOONOUT_API_KEY=${TOONOUT_API_KEY:-}  # Optional API key
+    restart: unless-stopped
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
