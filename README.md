@@ -113,16 +113,26 @@ zip -r images.zip test_images/
 
 ### Sending Images to the API
 
+#### Try with Example File
+
+An example input file is included in the repo:
+
+```bash
+curl -X POST "http://localhost:1337/cutout_zip" \
+  -F "file=@example_input.zip" \
+  -o cutouts.zip
+```
+
 #### Basic Usage
 
 ```bash
 curl -X POST "http://localhost:1337/cutout_zip" \
-  -F "file=@images.zip" \
+  -F "file=@your_images.zip" \
   -o cutouts.zip
 ```
 
 This will:
-1. Upload `images.zip` to the server
+1. Upload your ZIP to the server
 2. Process each image (remove background)
 3. Download `cutouts.zip` with the results
 

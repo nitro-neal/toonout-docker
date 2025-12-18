@@ -1,6 +1,12 @@
 # Output files
-*.zip
 frames/
+frames.zip
+cutouts.zip
+images.zip
+images_backup.zip
+
+# Keep example
+!example_input.zip
 output/
 cutouts/
 
